@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trav & Dylan's Web</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="profile">
+            <img src="sunset_logo.png" alt="Logo" class="logo">
+            <h1>Solly</h1>
+            <p class="typing-text">👋 Hello, I am Trav, <span id="dynamic-text-1"></span></p>
+            <div class="icons">
+                <a href="https://solomonsweb.github.io/travanddylan" target="_blank"><img src="twitter.png" alt="Twitter"></a>
+                <a href="https://solomonsweb.github.io/travanddylan" target="_blank"><img src="github.png" alt="GitHub"></a>
+                <a href="https://solomonsweb.github.io/travanddylan" target="_blank"><img src="reddit.png" alt="Reddit"></a>
+            </div>
+        </div>
+        
+        <div class="profile">
+            <img src="sunset_logo.png" alt="Logo" class="logo">
+            <h1>Alex</h1>
+            <p class="typing-text">👋 Hello, I am Dylan, <span id="dynamic-text-2"></span></p>
+            <div class="icons">
+                <a href="https://solomonsweb.github.io/travanddylan" target="_blank"><img src="twitter.png" alt="Twitter"></a>
+                <a href="https://solomonsweb.github.io/travanddylan" target="_blank"><img src="github.png" alt="GitHub"></a>
+                <a href="https://solomonsweb.github.io/travanddylan" target="_blank"><img src="reddit.png" alt="Reddit"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="map-container">
+        <h2>Where We're Based</h2>
+        <iframe
+            width="600"
+            height="450"
+            style="border:0"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9930.086829248398!2d-3.1790905!3d51.4815815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486e1cbf2b872c5b%3A0x1b7be3e743254e69!2sCardiff%2C%20UK!5e0!3m2!1sen!2suk!4v1646655869565!5m2!1sen!2suk">
+        </iframe>
+    </div>
+    
+    <footer>
+        <p>Made with 💖 by Trav & Dylan</p>
+    </footer>
+
+    <script>
+        const texts1 = [
+            "a rugby player.",
+            "a motorbiker.",
+            "a funny man.",
+        ];
+        
+        const texts2 = [
+            "a scratch man .",
+            "a person.",
+            "a tech enthusiast.",
+            "a rugby player.",
+            "an game unblocker."
+        ];
+
+        function typeEffect(elementId, texts) {
+            let index = 0;
+            let charIndex = 0;
+            const dynamicText = document.getElementById(elementId);
+
+            function typeText() {
+                if (charIndex < texts[index].length) {
+                    dynamicText.textContent += texts[index].charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeText, 100);
+                } else {
+                    setTimeout(eraseText, 2000);
+                }
+            }
+
+            function eraseText() {
+                if (charIndex > 0) {
+                    dynamicText.textContent = texts[index].substring(0, charIndex - 1);
+                    charIndex--;
+                    setTimeout(eraseText, 50);
+                } else {
+                    index = (index + 1) % texts.length;
+                    setTimeout(typeText, 500);
+                }
+            }
+
+            typeText();
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            typeEffect("dynamic-text-1", texts1);
+            typeEffect("dynamic-text-2", texts2);
+        });
+    </script>
+</body>
+</html>
