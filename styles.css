@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #4A90E2, #6A11CB);
+    text-align: center;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.container {
+    max-width: 600px;
+}
+
+.logo {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.typing-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.icons img {
+    width: 40px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+footer {
+    position: absolute;
+    bottom: 20px;
+    font-size: 0.9rem;
+}
